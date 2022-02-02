@@ -1,0 +1,1 @@
+error : php artisan migrate error was that pdo_mysql was not installed 
