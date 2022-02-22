@@ -2,25 +2,16 @@
 
 namespace App\Models;
 
-
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'name',
-        'description',
-        'image',
-        'price',
-        'type'
-    ];
 
-    public function getPriceAttribute($value)
+    public function category()
     {
-        $newForm = $value." MAD";
-        return $newForm;
+
+        return $this->belongsTo(Category::class, 'category_id');
     }
 }

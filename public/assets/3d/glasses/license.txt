@@ -1,0 +1,11 @@
+Model Information:
+* title:	Glasses-2
+* source:	https://sketchfab.com/3d-models/glasses-2-193b5e63672a40788c838e1307a1a6d7
+* author:	sara3dbear (https://sketchfab.com/sara3dbear)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Glasses-2" (https://sketchfab.com/3d-models/glasses-2-193b5e63672a40788c838e1307a1a6d7) by sara3dbear (https://sketchfab.com/sara3dbear) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
