@@ -1,3 +1,4 @@
+
 <div class="content">   
     <style>
         .content {
@@ -53,6 +54,7 @@
         }
     </style>
     <div class="container">
+   
         <div class="row">
             <div class="col-md-3 col-sm-6">    
               <div class="icon-stat">    
@@ -118,53 +120,12 @@
                 </div>   
                     
               </div>    
-            </div>    
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="panel panel-default">
-                       <div class="panel-heading">
-                       Dernières commandes
-                       </div>
-                    
-                        <div class="panel-body">
-                        <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Commande ID</th>
-                                        <th>Tax</th>
-                                        <th>Montant Total</th>
-                                        <th>Prenom</th>
-                                        <th>Nom</th>
-                                        <th>mobile</th>
-                                        <th>Email</th>
-                                        <th>Code Postal</th>
-                                        <th>Status</th>  
-                                        <th>Date de Commande</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($orders as $order)
-                                    <tr>
-                                        <td>{{$order->id}}</td>                                   
-                                        <td>{{$order->tax}} MAD</td>
-                                        <td>{{$order->total}} MAD</td>
-                                        <td>{{$order->firstname}}</td>
-                                        <td>{{$order->lastname}}</td>
-                                        <td>{{$order->mobile}}</td>
-                                        <td>{{$order->email}}</td>
-                                        <td>{{$order->zipcode}}</td>
-                                        <td>{{$order->status}}</td>
-                                        <td>{{$order->created_at}}</td>
-                                    @endforeach                     
-                                    </tr>
-                                </tbody>
-                            </table>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-          </div>        
+              
+            </div>  
+          </div>
+        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+       
+                  
     </div>    
 </div>
+
