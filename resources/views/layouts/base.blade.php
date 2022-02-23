@@ -309,7 +309,8 @@
 	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>	
 	
-
+	<script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     @livewireScripts
 </body>
 </html>

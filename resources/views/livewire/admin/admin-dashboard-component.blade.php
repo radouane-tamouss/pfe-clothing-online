@@ -123,7 +123,15 @@
               
             </div>  
           </div>
+  
           <!-- <div id="chartContainer" style="height: 370px; width: 100%;"></div> -->
+          <div class="row">
+            <div class="col-md-12">
+            
+            <livewire:livewire-column-chart :column-chart-model="$columnChartModel"/>
+            </div>
+          </div>
+       
          
           
           
