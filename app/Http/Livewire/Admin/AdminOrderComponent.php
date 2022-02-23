@@ -22,7 +22,9 @@ class AdminOrderComponent extends Component
 
         $order->save();
         session()->flash('order_message','Le statut de la commande a été mis à jour avec succès!');
-    }  
+    }
+    
+    
     public function render()
     {
         $orders = Order::orderBy('created_at', 'DESC')->paginate(12);

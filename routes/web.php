@@ -28,7 +28,7 @@ use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\ThankYouComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\WishlistComponent;
-
+use App\Http\Livewire\LivewireCharts;
 
 
 
@@ -62,7 +62,9 @@ Route::get('/thank-you',ThankyouComponent::class)->name('thankyou');
 
 Route::get('/product-category/{category_slug}',CategoryComponent::class)->name('product.category');
 
-Route::get('/search',SearchComponent::class)->name('product.search'); 
+Route::get('/search',SearchComponent::class)->name('product.search');
+
+Route::get('/livewire-charts', LivewireCharts::class)->name('livewire-charts.blade');
 
 
 //Client

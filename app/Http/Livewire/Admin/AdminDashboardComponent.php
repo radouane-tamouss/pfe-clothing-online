@@ -14,8 +14,6 @@ class AdminDashboardComponent extends Component
     public function render()
     {
         $orders = Order::orderBy('created_at','DESC')->get()->take(10);
-        
-        
         $totalSales = Order::where('status', 'delivered')->count();
         $totalRevenue = Order::where('status','delivered')->sum('total');
         $todaySales = Order::where('status', 'delivered')->whereDate('created_at',Carbon::today())->count();

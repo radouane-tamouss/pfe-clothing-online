@@ -6,6 +6,9 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "asantibanez/livewire-charts": "^2.4",
+        "cartalyst/stripe-laravel": "^13.0",
+        "consoletvs/charts": "7.*",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "hardevine/shoppingcart": "^3.0",
@@ -16,8 +19,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
         "livewire/livewire": "^2.5",
-        "tightenco/ziggy": "^1.0",
-        "cartalyst/stripe-laravel": "^13.0"
+        "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
