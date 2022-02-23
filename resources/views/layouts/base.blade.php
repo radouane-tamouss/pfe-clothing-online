@@ -51,9 +51,7 @@
 												<li class="menu-item" >
 												<a title="Dashboard" href="{{ route('admin.dashboard') }}">Dashboard</a>
 												</li>
-												<li class="menu-item" >
-												<a title="statistics" href="{{ route('admin.statistics') }}">statistiques</a>
-												</li>
+											
 												<li class="menu-item" >
                                                     <a title="Categories" href="{{route('admin.categories')}}">Categories</a>
                                                 </li>
@@ -310,42 +308,7 @@
     <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
 	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>	
-	<?php
-
-
-	$dataPoints = array(
-		array("y" => $todaySales, "label" => "Sunday"),
-		array("y" => 15, "label" => "Monday"),
-		array("y" => 25, "label" => "Tuesday"),
-		array("y" => 5, "label" => "Wednesday"),
-		array("y" => 10, "label" => "Thursday"),
-		array("y" => 0, "label" => "Friday"),
-		array("y" => 20, "label" => "Saturday")
-	);
-	?>
 	
-	<script>
-            window.onload = function () {
-            
-            var chart = new CanvasJS.Chart("chartContainer", {
-                title: {
-                    text: "Push-ups Over a Week"
-                },
-                axisY: {
-                    title: "Number of Push-ups"
-                },
-                data: [{
-                    type: "line",
-                    dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
-                }]
-            });
-            chart.render();
-            
-            }
-        </script>
-
-	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    
 
     @livewireScripts
 </body>
