@@ -52,6 +52,9 @@
 												<a title="Dashboard" href="{{ route('admin.dashboard') }}">Dashboard</a>
 												</li>
 												<li class="menu-item" >
+												<a title="statistics" href="{{ route('admin.statistics') }}">statistiques</a>
+												</li>
+												<li class="menu-item" >
                                                     <a title="Categories" href="{{route('admin.categories')}}">Categories</a>
                                                 </li>
 												<li class="menu-item" >
@@ -307,63 +310,41 @@
     <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
 	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>	
+	<?php
+
+
+	$dataPoints = array(
+		array("y" => $todaySales, "label" => "Sunday"),
+		array("y" => 15, "label" => "Monday"),
+		array("y" => 25, "label" => "Tuesday"),
+		array("y" => 5, "label" => "Wednesday"),
+		array("y" => 10, "label" => "Thursday"),
+		array("y" => 0, "label" => "Friday"),
+		array("y" => 20, "label" => "Saturday")
+	);
+	?>
 	
+	<script>
+            window.onload = function () {
+            
+            var chart = new CanvasJS.Chart("chartContainer", {
+                title: {
+                    text: "Push-ups Over a Week"
+                },
+                axisY: {
+                    title: "Number of Push-ups"
+                },
+                data: [{
+                    type: "line",
+                    dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+                }]
+            });
+            chart.render();
+            
+            }
+        </script>
 
-<?php
- 
- $dataPoints = array(
-	array("x" => 946665000000, "y" => 3289000),
-	array("x" => 978287400000, "y" => 3830000),
-	array("x" => 1009823400000, "y" => 2009000),
-	array("x" => 1041359400000, "y" => 2840000),
-	array("x" => 1072895400000, "y" => 2396000),
-	array("x" => 1104517800000, "y" => 1613000),
-	array("x" => 1136053800000, "y" => 1821000),
-	array("x" => 1167589800000, "y" => 2000000),
-	array("x" => 1199125800000, "y" => 1397000),
-	array("x" => 1230748200000, "y" => 2506000),
-	array("x" => 1262284200000, "y" => 6704000),
-	array("x" => 1293820200000, "y" => 5704000),
-	array("x" => 1325356200000, "y" => 4009000),
-	array("x" => 1356978600000, "y" => 3026000),
-	array("x" => 1388514600000, "y" => 2394000),
-	array("x" => 1420050600000, "y" => 1872000),
-	array("x" => 1451586600000, "y" => 2140000)
- );
-
- 
-?>
-
-<script>
-window.onload = function () {
- 
-var chart = new CanvasJS.Chart("chartContainer", {
-	animationEnabled: true,
-	title:{
-		text: "Revunue par anne"
-	},
-	axisY: {
-		title: "Revenue in DH",
-		valueFormatString: "#0,,.",
-		suffix: "mn",
-		prefix: "MAd"
-	},
-	data: [{
-		type: "spline",
-		markerSize: 5,
-		xValueFormatString: "YYYY",
-		yValueFormatString: "$#,##0.##",
-		xValueType: "dateTime",
-		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
-	}]
-});
- 
-chart.render();
- 
-}
-</script>
-
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     
 
     @livewireScripts
