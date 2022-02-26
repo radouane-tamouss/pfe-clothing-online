@@ -51,6 +51,9 @@
 												<li class="menu-item" >
 												<a title="Dashboard" href="{{ route('admin.dashboard') }}">Dashboard</a>
 												</li>
+												<li class="menu-item" >
+												<a title="charts" href="{{ route('admin.chart') }}">charts</a>
+												</li>
 											
 												<li class="menu-item" >
                                                     <a title="Categories" href="{{route('admin.categories')}}">Categories</a>
@@ -294,7 +297,7 @@
 			</div>
 		</div>
 	</footer>
-	
+
 	<script src="{{ asset('assets/js/jquery-1.12.4.minb8ff.js?ver=1.12.4')}}"></script>
 	<script src="{{ asset('assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4')}}"></script>
 	<script src="{{ asset('assets/js/bootstrap.min.js')}}"></script>
@@ -307,10 +310,12 @@
 	<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
 	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>	
-	
-	<script src="//unpkg.com/alpinejs" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
     @livewireScripts
+
+
+	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+	@livewireChartsScripts
 </body>
 </html>
