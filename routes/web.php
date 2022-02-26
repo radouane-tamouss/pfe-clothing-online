@@ -64,7 +64,6 @@ Route::get('/product-category/{category_slug}',CategoryComponent::class)->name('
 
 Route::get('/search',SearchComponent::class)->name('product.search');
 
-Route::get('/livewire-charts', LivewireCharts::class)->name('livewire-charts.blade');
 
 
 //Client
