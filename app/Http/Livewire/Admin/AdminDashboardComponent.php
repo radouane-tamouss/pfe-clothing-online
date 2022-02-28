@@ -10,6 +10,7 @@ use Asantibanez\LivewireCharts\Models\TreeMapChartModel;
 use Asantibanez\LivewireCharts\Models\LineChartModel;
 use Livewire\Component;
 use App\Models\Order;
+use App\Models\OrderItem;
 use App\Models\Category;
 use App\Models\User;
 use Carbon\Carbon;
@@ -17,71 +18,65 @@ use Carbon\Carbon;
 class AdminDashboardComponent extends Component
 {
 
-    
+
+   
     public function render()
     {
         
         $categories = Category::all();
 
         $date  = Carbon::now()->subDays(1);
-       
+
         $orders = Order::orderBy('created_at','DESC')->get()->take(10);
         $totalSales = Order::where('status', 'delivered')->count();
         $totalRevenue = Order::where('status','delivered')->sum('total');
         $todaySales = Order::where('status', 'delivered')->whereDate('created_at',Carbon::today())->count();
         $todayRevenue = Order::where('status','delivered')->whereDate('created_at',Carbon::now()->subDays(0))->sum('total');
         $tadayRevenue1 = Order::where('status','delivered')->whereDate('created_at',Carbon::now()->subDays(3))->sum('total');
-       
+        $ordered = Order::where('status','ordered')->count();
 
-      
 
-        
-
-        $columnChartModel = 
-        (new ColumnChartModel())
-        ->setTitle('Revenue')
-        ->setAnimated(true)
-        ->withoutLegend()
-       
-        
-        
-    ;
-        $i = 6 ;
-    for($j=0 ; $j<=6 ; $j++){
-        $d  = Carbon::now()->subDays($i);
-        $re = Order::where('status','delivered')->whereDate('created_at',$d)->sum('total');
-        $columnChartModel->addColumn($d->format('l jS'),$re,'#fc8181');
-        $i--;
-    }
+            $columnChartModel =  (new ColumnChartModel())
+                                ->setTitle('Revenue de cette semaine')
+                                ->setAnimated(true)
+                                ->withoutLegend()
+                                ->withOnColumnClickEventName('onColumnClick')  
+                                ;
+            $i = 6 ;
+            for($j=0 ; $j<=6 ; $j++){
+                $d  = Carbon::now()->subDays($i);
+                // $re = Order::where('status','delivered')->whereDate('created_at',$d)->sum('total');
+                $sl = Order::where('status', 'delivered')->whereDate('created_at',$d)->count();
+                $columnChartModel->addColumn($d->format('l jS'),$sl,'#428bca');
+                $i--;
+            }
          $pieChartModel = 
         (new PieChartModel())
-        ->setTitle('Categories')
+        ->setTitle('état des commandes')
         ->setAnimated(true)
-        ->addSlice('Food', 100, '#f6ad55')
-        ->addSlice('Shopping', 200, '#fc8181')
-        ->addSlice('Travel', 300, '#428bcd')
+        ->addSlice('livré', $totalSales, '#f6ad55')
+        ->addSlice('commandé', $ordered, '#fc8181')
+        
     ;
 
 
+    
         
        
         
 
         $lineChartModel = (new LineChartModel());
-        $lineChartModel->setTitle('visitors');
+        
+        $lineChartModel->setTitle('Orders '. Carbon::now()->format('F Y'));
         $lineChartModel->setAnimated(true);
-        // for($i= 0 ; $i<12 ; $i++ ){
-        //     $lineChartModel->addPoint($i,rand(10,200));
-        // }
-        // foreach ($weekMap as $day){
-        //     $lineChartModel->addPoint($day,rand(10,200));
-        // }
-
+        
+        
         $i = 30 ;
         for($j=0 ; $j<=30 ; $j++){
             $d  = Carbon::now()->subDays($i);
-            $re = Order::where('status','delivered')->whereDate('created_at',$d)->sum('total');
-            $lineChartModel->addPoint($d->format('l jS'),$re);
+            // $re = Order::where('status','delivered')->whereDate('created_at',$d)->sum('total');
+            $re = Order::whereDate('created_at',$d)->count();
+            $lineChartModel->addPoint($d->format('j'),$re);
             $i--;
         }
    
@@ -104,6 +99,7 @@ class AdminDashboardComponent extends Component
             'date' => $date,
             'tadayRevenue1'=> $tadayRevenue1,
             'categories'=>$categories
+           
             
             
             ])->layout('layouts.base');

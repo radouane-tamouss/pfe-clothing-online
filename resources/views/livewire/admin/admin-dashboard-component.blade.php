@@ -128,12 +128,12 @@
     </div> 
   </div> 
   <div class="container">
-          <select name="" class="form-control" wire:model="category_id">
-              <option value="Revenue">Revenue</option>
+          <select name="" class="form-control" wire:model="status">
+              <option value="delivered">revenue</option>
            
-              <option value="Ventes">ventes</option>    
+              <option value="ordered">ventes</option>    
               
-          </select>
+          </select>   
     
         <div class="row" style="height: 32rem !important">
               <div style="float:left; width: 70%; height: 32rem">
@@ -150,9 +150,10 @@
                 />
               </div>
               <!-- <div id="chartContainer" style="height: 370px; width: 100%;"></div> -->          
-        </div>    
+        </div> 
+      
         <div class="row" style="height: 32rem !important">
-        
+       
        <hr>
             <livewire:livewire-line-chart
                 key="{{ $lineChartModel->reactiveKey() }}"
@@ -162,7 +163,8 @@
 
         </div> 
         <br>
-           
+
+        
      
   </div>
     

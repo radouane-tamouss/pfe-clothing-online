@@ -51,9 +51,7 @@
 												<li class="menu-item" >
 												<a title="Dashboard" href="{{ route('admin.dashboard') }}">Dashboard</a>
 												</li>
-												<li class="menu-item" >
-												<a title="charts" href="{{ route('admin.chart') }}">charts</a>
-												</li>
+											
 											
 												<li class="menu-item" >
                                                     <a title="Categories" href="{{route('admin.categories')}}">Categories</a>
