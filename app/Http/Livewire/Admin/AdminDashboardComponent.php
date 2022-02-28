@@ -45,11 +45,29 @@ class AdminDashboardComponent extends Component
             $i = 6 ;
             for($j=0 ; $j<=6 ; $j++){
                 $d  = Carbon::now()->subDays($i);
-                // $re = Order::where('status','delivered')->whereDate('created_at',$d)->sum('total');
-                $sl = Order::where('status', 'delivered')->whereDate('created_at',$d)->count();
-                $columnChartModel->addColumn($d->format('l jS'),$sl,'#428bca');
+                $re = Order::where('status','delivered')->whereDate('created_at',$d)->sum('total');
+                // $sl = Order::where('status', 'delivered')->whereDate('created_at',$d)->count();
+                $columnChartModel->addColumn($d->format('l jS'),$re,'#428bca');
                 $i--;
             }
+
+
+            $vente_ch =  (new ColumnChartModel())
+            ->setTitle('ventes de cette semaine')
+            ->setAnimated(true)
+            ->withoutLegend()
+            ->withOnColumnClickEventName('onColumnClick')  
+            ;
+
+            $i = 6 ;
+            for($j=0 ; $j<=6 ; $j++){
+                $d  = Carbon::now()->subDays($i);
+                // $re = Order::where('status','delivered')->whereDate('created_at',$d)->sum('total');
+                $sl = Order::where('status', 'delivered')->whereDate('created_at',$d)->count();
+                $vente_ch->addColumn($d->format('l jS'),$sl,'#ff5e5e');
+                $i--;
+            }
+
          $pieChartModel = 
         (new PieChartModel())
         ->setTitle('état des commandes')
@@ -67,7 +85,7 @@ class AdminDashboardComponent extends Component
 
         $lineChartModel = (new LineChartModel());
         
-        $lineChartModel->setTitle('Orders '. Carbon::now()->format('F Y'));
+        $lineChartModel->setTitle('Commandes de '. Carbon::now()->format('F Y'));
         $lineChartModel->setAnimated(true);
         
         
@@ -76,7 +94,7 @@ class AdminDashboardComponent extends Component
             $d  = Carbon::now()->subDays($i);
             // $re = Order::where('status','delivered')->whereDate('created_at',$d)->sum('total');
             $re = Order::whereDate('created_at',$d)->count();
-            $lineChartModel->addPoint($d->format('j'),$re);
+            $lineChartModel->addPoint($d->format('jS'),$re);
             $i--;
         }
    
@@ -98,7 +116,9 @@ class AdminDashboardComponent extends Component
     
             'date' => $date,
             'tadayRevenue1'=> $tadayRevenue1,
-            'categories'=>$categories
+            'categories'=>$categories,
+
+            'vente_ch'=>$vente_ch
            
             
             

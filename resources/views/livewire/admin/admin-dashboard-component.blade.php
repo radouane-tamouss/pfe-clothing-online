@@ -52,6 +52,13 @@
             font-size: 12px;
             border-top: 1px solid #eee;
         }
+        .column-chart{
+          height: 32rem; 
+          width : 70%;
+          float : left;
+        }
+
+        
 
       
   </style>
@@ -127,23 +134,54 @@
       <!-- <div id="chartContainer" style="height: 370px; width: 100%;"></div> -->             
     </div> 
   </div> 
+
   <div class="container">
-          <select name="" class="form-control" wire:model="status">
-              <option value="delivered">revenue</option>
-           
-              <option value="ordered">ventes</option>    
+   
+          <form action="" method="GET">
+            <select name="selectioner" style="width:200px">
+                <option value="rev">revenue</option>
+                <option value="ven">ventes</option>
               
-          </select>   
+            </select>
+            <input type="submit" name="submit"  value="filtrer" style="border-radius:5px; width : 100px">
+        </form>
     
         <div class="row" style="height: 32rem !important">
-              <div style="float:left; width: 70%; height: 32rem">
-                <livewire:livewire-column-chart
-                      key="{{ $columnChartModel->reactiveKey() }}"
-                      :column-chart-model="$columnChartModel"
-                  />
-              </div>   
-              <hr>
-              <div style="float:right; height: 32rem">
+         
+              <?php   if(isset($_GET['submit'])){
+                if(!empty($_GET['selectioner']=="rev")) { ?>
+               
+            
+
+                <div style="float:left; width: 70%; height: 32rem">
+                  <livewire:livewire-column-chart
+                        key="{{ $columnChartModel->reactiveKey() }}"
+                        :column-chart-model="$columnChartModel"
+                    />
+                </div> 
+
+
+              <?php } }?>
+
+
+              <?php   if(isset($_GET['submit'])){
+                if(!empty($_GET['selectioner']=="ven")) { ?>
+               
+            
+
+                <div class="column-chart" style="float:left; width: 70%; height: 32rem">
+                  <livewire:livewire-column-chart
+                        key="{{ $vente_ch->reactiveKey() }}"
+                        :column-chart-model="$vente_ch"
+                    />
+                </div> 
+
+              <?php } }?>
+
+
+            
+            
+              <div class="pie-chart" style="float:right; height: 32rem">
                 <livewire:livewire-pie-chart
                     key="{{ $pieChartModel->reactiveKey() }}"
                     :pie-chart-model="$pieChartModel"
@@ -163,6 +201,7 @@
 
         </div> 
         <br>
+        <hr>
 
         
      
