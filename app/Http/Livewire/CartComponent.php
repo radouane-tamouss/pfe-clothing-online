@@ -55,20 +55,38 @@ class CartComponent extends Component
     }
 
 
+    // public function setAmountForCheckout()
+    // {
+    //     if(!Cart::count()>0)
+    //     {
+    //         session()->forget('checkout');
+    //         return;
+    //     }
+    //     session()->put('checkout',
+    //     [
+    //         'subtotal'=>Cart::subtotal(),
+    //         'tax'=>0,
+    //         'total'=>Cart::total()
+    //     ]);
+    // }
+
+
     public function setAmountForCheckout()
-    {
-        if(!Cart::count()>0)
-        {
-            session()->forget('checkout');
-            return;
-        }
-        session()->put('checkout',
-        [
-            'subtotal'=>0,
-            'tax'=>Cart::subtotal(),
-            'total'=>Cart::total()
-        ]);
-    }
+{ 
+	if(!Cart::count() > 0)
+	{
+		session()->forget('checkout');
+		return;
+	}    
+
+	
+		session()->put('checkout',[
+			'discount' => 0,
+			'subtotal' => Cart::subtotal(),
+			'tax' => Cart::tax(),
+			'total' => Cart::total()
+		]);
+}
   
     public function render()
     {
