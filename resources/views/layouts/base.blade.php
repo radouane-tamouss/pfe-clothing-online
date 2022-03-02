@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Définissez la tendance des vêtements pour hommes, femmes, enfants et bébés avec RedOne-fashion. l'accessoire le plus élégant - modèles de chaussures et produits de décoration pour la cuisine - est à portée d'un clic.">
 	<meta name="keywords" content="redonefashion, redone fashion cloths, redone-cloths, redone-shoes, redone vetment, cloths el jadida , vetement pas chere el jadida , redone cloths , fashion store redone , redone cloths cheap, vetement pas chere maroc, cloths el jadida pas chere, vetement livraison gratuits, t-shirt eljadida, short el jadida ">
-	<title>RedOne fashion | Définissez la tendance des vêtements pour hommes, femmes, enfants et bébés avec RedOne-fashion </title>	
+	<title draggable=true>RedOne fashion | Définissez la tendance des vêtements pour hommes, femmes, enfants et bébés avec RedOne-fashion </title>	
 
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/images/favicon.ico')}}">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic&amp;subset=latin,latin-ext" rel="stylesheet">
@@ -49,7 +49,7 @@
 											<a title="Mon Compte" href="#">Mon Compte ({{Auth::user()->utype}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 											<ul class="submenu curency" >
 												<li class="menu-item" >
-												<a title="Dashboard" href="{{ route('admin.dashboard') }}">Dashboard</a>
+												<a title="Dashboard" href="{{ route('admin.dashboard') }}">tableau de bord</a>
 												</li>
 											
 											

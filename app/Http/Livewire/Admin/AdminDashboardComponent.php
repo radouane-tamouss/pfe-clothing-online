@@ -37,7 +37,7 @@ class AdminDashboardComponent extends Component
 
 
             $columnChartModel =  (new ColumnChartModel())
-                                ->setTitle('Revenue de cette semaine')
+                                ->setTitle('Revenue de cette semaine par MAD')
                                 ->setAnimated(true)
                                 ->withoutLegend()
                                 ->withOnColumnClickEventName('onColumnClick')  

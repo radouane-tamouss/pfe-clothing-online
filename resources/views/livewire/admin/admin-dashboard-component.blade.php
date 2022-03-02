@@ -67,11 +67,11 @@
         <div class="col-md-3 col-sm-6">    
           <div class="icon-stat">    
             <div class="row">
-              <div class="col-xs-8 text-left">
+              <div class="col-xs-9 text-left">
                 <span class="icon-stat-label">Revenus</span>
                 <span class="icon-stat-value">{{$totalRevenue}} DH</span>
               </div>   
-              <div class="col-xs-4 text-center">
+              <div class="col-xs-2 text-center">
                 <i class="fa fa-dollar icon-stat-visual bg-primary"></i>
               </div>
             </div>    
@@ -87,7 +87,7 @@
                 <span class="icon-stat-label">Ventes totales</span>
                 <span class="icon-stat-value">{{$totalSales}}</span>
               </div>    
-              <div class="col-xs-4 text-center">
+              <div class="col-xs-2 text-center">
                 <i class="fa fa-gift icon-stat-visual bg-secondary"></i>
               </div>
             </div>    
@@ -103,7 +103,7 @@
                 <span class="icon-stat-label">Revenu d'aujourd'hui</span>
                 <span class="icon-stat-value">{{$todayRevenue}} DH</span>
               </div>    
-              <div class="col-xs-4 text-center">
+              <div class="col-xs-2 text-center">
                 <i class="fa fa-dollar icon-stat-visual bg-primary"></i>
               </div>
             </div>    
@@ -119,7 +119,7 @@
                 <span class="icon-stat-label">Ventes d'aujourd'hui</span>
                 <span class="icon-stat-value">{{$todaySales}}</span>
               </div>    
-              <div class="col-xs-4 text-center">
+              <div class="col-xs-2 text-center">
                 <i class="fa fa-gift icon-stat-visual bg-secondary"></i>
               </div>
             </div> 
@@ -161,22 +161,18 @@
                 </div> 
 
 
-              <?php } }?>
+              <?php } else{ ?>
+                 <div class="column-chart" style="float:left; width: 70%; height: 32rem">
+                 <livewire:livewire-column-chart
+                       key="{{ $vente_ch->reactiveKey() }}"
+                       :column-chart-model="$vente_ch"
+                   />
+               </div> 
+
+             <?php } }?>
 
 
-              <?php   if(isset($_GET['submit'])){
-                if(!empty($_GET['selectioner']=="ven")) { ?>
-               
             
-
-                <div class="column-chart" style="float:left; width: 70%; height: 32rem">
-                  <livewire:livewire-column-chart
-                        key="{{ $vente_ch->reactiveKey() }}"
-                        :column-chart-model="$vente_ch"
-                    />
-                </div> 
-
-              <?php } }?>
 
 
             
