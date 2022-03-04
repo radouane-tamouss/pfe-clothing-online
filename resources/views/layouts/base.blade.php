@@ -60,6 +60,9 @@
                                                     <a title="Products" href="{{route('admin.products')}}">Tous les produits</a>
                                                 </li>
 												<li class="menu-item" >
+                                                    <a title="Products" href="{{route('admin.users')}}">Tous les clients</a>
+                                                </li>
+												<li class="menu-item" >
                                                     <a title="Attributes" href="{{route('admin.attributes')}}">Attributs des Produits</a>
                                                 </li>
 												<li class="menu-item" >

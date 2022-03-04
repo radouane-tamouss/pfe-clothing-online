@@ -17,6 +17,8 @@ use App\Http\Livewire\Admin\AdminEditProductComponent;
 use App\Http\Livewire\Admin\AdminHomeCategoryComponent;
 use App\Http\Livewire\Admin\AdminHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminOrderComponent;
+use App\Http\Livewire\Admin\AdminUserComponent;
+
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\CheckoutComponent;
@@ -96,6 +98,7 @@ Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
     Route::get('/admin/attribute/add',AdminAddAttributesComponent::class)->name('admin.add_attribute');
     Route::get('/admin/attribute/edit/{attribute_id}', AdminEditAttributesComponent::class)->name('admin.edit_attribute');
 
+    Route::get('/admin/users',  App\Http\Livewire\Admin\AdminUserComponent::class)->name('admin.users');
 
 
     
