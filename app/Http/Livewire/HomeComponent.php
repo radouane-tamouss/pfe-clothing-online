@@ -18,6 +18,7 @@ class HomeComponent extends Component
         if(Auth::check()){
             Cart::restore(Auth::user()->email);
         }
+        
         $category = HomeCategory::find(1);
           $cats =explode(',',$category->sel_categories );
           $categories = Category::whereIn('id',$cats)->get();
@@ -26,6 +27,8 @@ class HomeComponent extends Component
                     'categories'            => $categories,
                     'no_of_products' =>$no_of_products
             ])->layout('layouts.base');
+        
+        
 
            
             

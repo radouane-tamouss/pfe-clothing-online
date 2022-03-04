@@ -53,11 +53,12 @@
                             <div class="wrap-price"><span class="product-price">{{$product->regular_price}} MAD</span></div>
                             <div class="stock-info in-stock">
                                 <p class="availability">Disponibilité : <b>{{$product->stock_status}}</b></p>
+								<p class="availability">Quantity en Stock : <b>{{$product->quantity}}</b></p>
                             </div>
                             <div class="quantity">
                             	<span>Quantity:</span>
 								<div class="quantity-input">
-									<input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*" >
+									<input type="text" name="product-quatity" value="1" data-max="{{$product->quantity}}" pattern="[0-9]*" >
 									
 									<a class="btn btn-reduce" href="#"></a>
 									<a class="btn btn-increase" href="#"></a>

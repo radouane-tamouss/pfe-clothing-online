@@ -85,7 +85,7 @@ class AdminDashboardComponent extends Component
 
         $lineChartModel = (new LineChartModel());
         
-        $lineChartModel->setTitle('Commandes de '. Carbon::now()->format('F Y'));
+        $lineChartModel->setTitle('Commandes de derniere 30 jours');
         $lineChartModel->setAnimated(true);
         
         

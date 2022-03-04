@@ -19,12 +19,16 @@ class AuthAdmin
     {
         if(session('utype') == 'ADM')
         {
+
             return $next($request);
+            
+            
         }
         // else{
         //     session()->flush();
            
         // }
         return $next($request);
+        
     }
 }

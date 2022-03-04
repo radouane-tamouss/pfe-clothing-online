@@ -6,7 +6,7 @@
 			<div class="wrap-breadcrumb">
 				<ul>
 					<li class="item-link"><a href="/" class="link">home</a></li>
-					<li class="item-link"><span>Cart</span></li>
+					<li class="item-link"><span>Panier</span></li>
 				</ul>
 			</div>
 			<div class=" main-content-area">
@@ -31,7 +31,7 @@
 							<div class="price-field produtc-price"><p class="price">{{ $item->model->regular_price }} MAD</p></div>
 							<div class="quantity">
 								<div class="quantity-input">
-									<input type="text" name="product-quatity" value="{{ $item->qty }}" data-max="120" pattern="[0-9]*" >									
+									<input type="text" name="product-quatity" value="{{ $item->qty }}" data-max="50" pattern="[0-9]*" >									
 									<a class="btn btn-increase" href="#" wire:click.prevent="increaseQuantity('{{ $item->rowId }}')"></a>
 									<a class="btn btn-reduce" href="#" wire:click.prevent="decreaseQuantity('{{ $item->rowId }}')"></a>
 
@@ -59,7 +59,7 @@
 						<p class="summary-info"><span class="title">Sous Total</span><b class="index">{{ Cart::subtotal() }} MAD</b></p>
 						<p class="summary-info"><span class="title">Tva</span><b class="index">{{ Cart::tax() }} MAD</b></p>
 						<p class="summary-info"><span class="title">Livraison</span><b class="index">Gratuit!</b></p>
-						<p class="summary-info total-info "><span class="title">Total</span><b class="index">{{ Cart::total(0) }} MAD</b></p>
+						<p class="summary-info total-info "><span class="title">Total</span><b class="index">{{ Cart::subtotal() }} MAD</b></p>
 					</div>
 					<div class="checkout-info">
 						
