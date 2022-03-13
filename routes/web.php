@@ -78,6 +78,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
 //admin
 Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
+   
     Route::get('/admin/dashboard', App\Http\Livewire\Admin\AdminDashboardComponent::class)->name('admin.dashboard');
     
         //category rouetes
@@ -100,7 +101,7 @@ Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
 
     Route::get('/admin/users',  App\Http\Livewire\Admin\AdminUserComponent::class)->name('admin.users');
 
-
+    
     
 
 
